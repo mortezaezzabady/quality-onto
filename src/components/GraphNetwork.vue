@@ -19,6 +19,7 @@ const configs = defineConfigs({
       class="graph w-full h-full"
       :nodes="graph.nodes"
       :edges="graph.edges"
+      :paths="graph.paths"
       :configs="configs"
     />
   </div>
