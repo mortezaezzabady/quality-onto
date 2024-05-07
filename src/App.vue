@@ -2,7 +2,7 @@
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { computed, ref } from 'vue'
-import { Loader2, Network } from 'lucide-vue-next'
+import { Loader2 } from 'lucide-vue-next'
 import {
   Select,
   SelectContent,
@@ -12,7 +12,6 @@ import {
   SelectValue
 } from '@/components/ui/select'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
-import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert'
 import { Badge } from '@/components/ui/badge'
 import GraphNetwork from './components/GraphNetwork.vue'
 import VueMarkdown from 'vue-markdown-render'
