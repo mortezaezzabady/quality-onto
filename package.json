@@ -23,6 +23,7 @@
     "radix-vue": "^1.7.3",
     "tailwind-merge": "^2.3.0",
     "tailwindcss-animate": "^1.0.7",
+    "v-network-graph": "^0.9.15",
     "vee-validate": "^4.12.7",
     "vue": "^3.4.21",
     "vue-markdown-render": "^2.1.1",

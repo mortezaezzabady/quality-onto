@@ -14,6 +14,7 @@ import {
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert'
 import { Badge } from '@/components/ui/badge'
+import GraphNetwork from './components/GraphNetwork.vue'
 import VueMarkdown from 'vue-markdown-render'
 import type { ChatResponse } from './models'
 import * as Config from './config'
@@ -52,8 +53,8 @@ async function sendPrompt($event: Event) {
     })
 
     const r = await response.json()
-    console.log(r)
     chatResponse.value = r as ChatResponse
+    console.log(chatResponse.value.graph.edges)
   } catch (error) {
     console.log(error)
   }
@@ -110,7 +111,7 @@ async function sendPrompt($event: Event) {
             <div v-html="chatResponseStyled"></div>
           </CardContent>
         </Card>
-        <Card class="lg:flex-1 bg-transparent">
+        <Card class="bg-transparent">
           <CardHeader class="relative">
             <div class="absolute end-8 text-accent">Step 2</div>
             <CardTitle>KG Entities</CardTitle>
@@ -126,14 +127,23 @@ async function sendPrompt($event: Event) {
             </div>
           </CardContent>
         </Card>
-        <Card class="lg:flex-1 bg-transparent">
+        <Card class="bg-transparent lg:col-span-2">
+          <CardHeader class="relative">
+            <CardTitle>Stuff</CardTitle>
+            <CardDescription>Yes.</CardDescription>
+          </CardHeader>
+          <CardContent>
+            <GraphNetwork :graph="chatResponse.graph" />
+          </CardContent>
+        </Card>
+        <!--<Card class="bg-transparent">
           <CardHeader class="relative">
             <div class="absolute end-8 text-accent">Step 3</div>
             <CardTitle>Top Reasoning Paths </CardTitle>
             <CardDescription>Closests paths in the KG with the initial response.</CardDescription>
           </CardHeader>
           <CardContent class="flex flex-col gap-2">
-            <Alert v-for="path in chatResponse.top_paths" :key="path.score">
+            <Alert v-for="path in chatResponse.paths" :key="path.score">
               <Network class="h-4 w-4" />
               <AlertTitle>Score: {{ path.score }}</AlertTitle>
               <AlertDescription>
@@ -143,8 +153,8 @@ async function sendPrompt($event: Event) {
               </AlertDescription>
             </Alert>
           </CardContent>
-        </Card>
-        <Card class="lg:flex-1 bg-transparent">
+        </Card>-->
+        <Card class="bg-transparent">
           <CardHeader class="relative">
             <div class="absolute end-8 text-accent">Step 4</div>
             <CardTitle>Enhanced Query</CardTitle>
