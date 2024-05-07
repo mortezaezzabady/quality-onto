@@ -16,6 +16,7 @@ import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert'
 import { Badge } from '@/components/ui/badge'
 import VueMarkdown from 'vue-markdown-render'
 import type { ChatResponse } from './models'
+import * as Config from './config'
 
 const prompt = ref<string>('')
 const model = ref<'gpt' | 'llama'>('gpt')
@@ -39,7 +40,7 @@ async function sendPrompt($event: Event) {
 
   isLoading.value = true
   try {
-    const response = await fetch('https://75f5-77-141-120-12.ngrok-free.app/chat', {
+    const response = await fetch(`${Config.BASE_URL}/chat`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
