@@ -128,8 +128,8 @@ async function sendPrompt($event: Event) {
         </Card>
         <Card class="bg-transparent lg:col-span-2">
           <CardHeader class="relative">
-            <CardTitle>Stuff</CardTitle>
-            <CardDescription>Yes.</CardDescription>
+            <CardTitle>SubGraph of the KG</CardTitle>
+            <CardDescription>Related nodes and top reasoning paths between them.</CardDescription>
           </CardHeader>
           <CardContent>
             <GraphNetwork :graph="chatResponse.graph" />
